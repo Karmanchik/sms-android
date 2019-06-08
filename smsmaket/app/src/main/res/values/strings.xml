@@ -1,0 +1,138 @@
+<resources>
+    <string name="app_name" translatable="false">SMS</string>
+    <string name="title_activity_main3" translatable="false">Main3Activity</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general" translatable="false">General</string>
+
+    <string name="pref_title_social_recommendations" translatable="false">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations" translatable="false">Recommendations for people to contact
+        based on your message
+        history
+    </string>
+
+    <string name="pref_title_display_name" translatable="false">Display name</string>
+    <string name="pref_default_display_name" translatable="false">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages" translatable="false">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync" translatable="false">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency" translatable="false">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value"/>
+
+    <string name="pref_title_system_sync_settings" translatable="false">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications" translatable="false">Notifications</string>
+
+    <string name="pref_title_new_message_notifications" translatable="false">New message notifications</string>
+
+    <string name="pref_title_ringtone" translatable="false">Ringtone</string>
+    <string name="pref_ringtone_silent" translatable="false">Silent</string>
+
+    <string name="pref_title_vibrate" translatable="false">Vibrate</string>
+
+    <!-- dialog toolbar -->
+    <string name="call">Позвонить</string>
+    <string name="stat">Статистика</string>
+    <string name="clean">Очистить</string>
+
+    <!-- main toolbar -->
+    <string name="nightMode">Ночная тема</string>
+    <string name="setting">Настройки</string>
+    <string name="about">Об авторе</string>
+    <string name="updatebd">Обновить БД</string>
+    <string name="web_version">Веб-версия</string>
+    <string name="black_list">Черный список</string>
+    <string name="avatar_desc" translatable="false">avatar</string>
+    <string name="more" translatable="false">more</string>
+    <string name="search" translatable="false">search</string>
+    <string name="statistic">Статистика</string>
+    <string name="clear">Очистить</string>
+    <string name="toBanItem">Заблокировать контакт</string>
+    <string name="author_full_name">Карченко Александр Федорович</string>
+    <string name="about_title">Android - разработчик</string>
+    <string name="author_slogan">Быстро и качественно!</string>
+    <string name="author_mail" translatable="false">karchenko.alexandro@yandex.ru</string>
+    <string name="author_vk" translatable="false">https://vk.com/karchenko98</string>
+    <string name="phone_is_baned">Номер добавлен в список</string>
+    <string name="select_phone">Выберите номер!</string>
+    <string name="delete_dialog">Удалить диалог</string>
+    <string name="want_delete_dialog">Вы уверены, что хотите удалить переписку?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="all_sms_count">All sms:</string>
+    <string name="long_sms_title">Длинное сообщение!</string>
+    <string name="long_sms_warning">Вы уверенны, что хотите отправить?</string>
+    <string name="inbox_sms_count">Входящих сообщений:</string>
+    <string name="outbox_sms_count">Исходящих сообщений:</string>
+    <string name="select_language">Выберите язык приложения</string>
+    <string name="setting_reset_title">Сброс настроек</string>
+    <string name="setting_reset_message">После сброса, все настройки приложения возвратятся до начальных. Хотите продолжить?</string>
+    <string name="send_confirm_title">Подтверждение отправления</string>
+    <string name="send_confirm_message">"Сообщения длиннее 50 символов будут требовать подтверждения отправления для предотвращения случайного отправления. Вы всегда сможете изменить свое решение в разделе \\\"Настройки\\\". "</string>
+    <string name="contacts_use_title">Контакты</string>
+    <string name="contacts_use_message">Использование ваших контактов для определения номеров у других пользователей. Вы всегда можете запретить использование ваших данных в меню \\\"Настройки\\\".</string>
+    <string name="phone_detect_title">Определение номера</string>
+    <string name="phone_detect_message">Вы можете указать источники из которых будет выбираться информация для распознавания номеров.</string>
+    <string name="apps">Приложения</string>
+    <string name="other_users">Других пользователей</string>
+    <string name="use_db_phones">Использовать базы номеров</string>
+    <string name="uses_contacts_title">Доступ к контактам</string>
+    <string name="uses_contacts_message">Разрешение необходимо приложению для распознавания номеров.</string>
+    <string name="uses_sms_title">Доступ к SMS</string>
+    <string name="uses_sms_message">Разрешение необходимо приложению для работы с SMS.</string>
+    <string name="lang">language</string>
+    <string name="backup">Бэкап</string>
+    <string name="use_my_data">Использование моих контактов</string>
+    <string name="error_delete_chat">Для удаления смс приложение должно быть приложение по умолчанию!</string>
+    <string name="update_end">Database update complete!</string>
+    <string name="info_unban_phone">"Диалоги с разблокированными пользователями появятся после перезагрузки программы!
+        "
+    </string>
+
+</resources>

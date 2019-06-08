@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/nightMode" android:id="@+id/itemNightMode"/>
+    <item android:title="@string/setting" android:id="@+id/itemSetting"/>
+    <item android:title="@string/updatebd" android:id="@+id/itemUpdate"/>
+    <item android:title="@string/web_version" android:id="@+id/itemWeb"/>
+    <item android:title="@string/black_list" android:id="@+id/itemBlackList"/>
+    <item android:title="@string/about" android:id="@+id/itemAbout"/>
+</menu>

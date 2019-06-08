@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="call">Позвонить</string>
+    <string name="stat">Статистика</string>
+    <string name="clean">Очистить</string>
+    <string name="nightMode">Ночная тема</string>
+    <string name="setting">Настройки</string>
+    <string name="about">Об авторе</string>
+    <string name="updatebd">Обновить БД</string>
+    <string name="web_version">Веб-версия</string>
+    <string name="black_list">Черный список</string>
+    <string name="statistic">Статистика</string>
+    <string name="clear">Очистить</string>
+    <string name="toBanItem">Заблокировать контакт</string>
+    <string name="author_full_name">Карченко Александр Федорович</string>
+    <string name="about_title">Android - разработчик</string>
+    <string name="author_slogan">Быстро и качественно!</string>
+    <string name="phone_is_baned">Номер добавлен в список</string>
+    <string name="select_phone">Выберите номер!</string>
+    <string name="delete_dialog">Удалить диалог</string>
+    <string name="want_delete_dialog">Вы уверены, что хотите удалить переписку?</string>
+    <string name="long_sms_title">Длинное сообщение!</string>
+    <string name="long_sms_warning">Вы уверенны, что хотите отправить?</string>
+    <string name="inbox_sms_count">Входящих сообщений:</string>
+    <string name="outbox_sms_count">Исходящих сообщений:</string>
+    <string name="select_language">Выберите язык приложения</string>
+    <string name="setting_reset_title">Сброс настроек</string>
+    <string name="setting_reset_message">"После сброса, все настройки приложения возвратятся до начальных. Хотите продолжить? "</string>
+    <string name="send_confirm_title">Подтверждение отправления</string>
+    <string name="send_confirm_message">"Сообщения длиннее 50 символов будут требовать подтверждения отправления для предотвращения случайного отправления. Вы всегда сможете изменить свое решение в разделе \\\"Настройки\\\". "</string>
+    <string name="contacts_use_title">Контакты!</string>
+    <string name="contacts_use_message">"Использование ваших контактов для определения номеров у других пользователей. Вы всегда можете запретить использование ваших данных в меню \\\"Настройки\\\". "</string>
+    <string name="phone_detect_title">Определение номера</string>
+    <string name="phone_detect_message">"Вы можете указать источники из которых будет выбираться информация для распознавания номеров. "</string>
+    <string name="apps">Приложения</string>
+    <string name="other_users">Других пользователей</string>
+    <string name="use_db_phones">Использовать базы номеров</string>
+    <string name="uses_contacts_title">Доступ к контактам</string>
+    <string name="uses_contacts_message">Разрешение необходимо приложению для распознавания номеров.</string>
+    <string name="uses_sms_title">Доступ к SMS</string>
+    <string name="uses_sms_message">Разрешение необходимо приложению для работы с SMS.</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="lang">Язык</string>
+    <string name="backup">Бэкап</string>
+    <string name="use_my_data">Использование моих контактов</string>
+    <string name="all_sms_count">Сообщения:</string>
+    <string name="error_delete_chat">Для удаления смс приложение должно быть приложение по умолчанию!</string>
+    <string name="update_end">Обновление базы данных завершено!</string>
+    <string name="info_unban_phone">"Диалоги с разблокированными пользователями появятся после перезагрузки программы!
+        "
+    </string>
+</resources>

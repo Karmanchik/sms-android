@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity.SettingActivity">
+
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/toolbar" tools:ignore="MissingConstraints"
+            android:visibility="gone"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            tools:layout_editor_absoluteY="56dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical"
+        >
+            <TextView
+                    android:text="@string/lang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/languageView" style="@style/setting_item"/>
+            <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <Switch
+                    android:text="@string/nightMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" tools:layout_editor_absoluteY="282dp"
+                    tools:layout_editor_absoluteX="182dp" android:id="@+id/nightModeView"
+                    style="@style/setting_item" android:checked="false"/>
+            <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <Switch
+                    android:text="@string/phone_detect_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/useNumberDbView"
+                    style="@style/setting_item"/>
+            <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <TextView
+                    android:text="@string/black_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/openblackListView"
+                    style="@style/setting_item"/>
+            <View
+                    android:id="@+id/divider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <TextView
+                    android:text="@string/backup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/backupView"
+                    style="@style/setting_item" android:visibility="gone"/>
+            <View
+                    android:id="@+id/divider7"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <TextView
+                    android:text="@string/setting_reset_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/resetView"
+                    style="@style/setting_item"/>
+            <View
+                    android:id="@+id/divider10"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <Switch
+                    android:text="@string/send_confirm_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/doubleClickView"
+                    style="@style/setting_item"/>
+            <View
+                    android:id="@+id/divider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <Switch
+                    android:text="@string/use_my_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/useMyContactsView"
+                    style="@style/setting_item"/>
+            <View
+                    android:id="@+id/divider421"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+            <TextView
+                    android:text="@string/about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/openAboutView"
+                    style="@style/setting_item"/>
+            <View
+                    android:id="@+id/divider41"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?android:attr/listDivider"
+            />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

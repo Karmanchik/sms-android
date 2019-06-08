@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/toolbar_dialog"
+            android:background="@color/colorPrimary"
+            tools:ignore="MissingConstraints">
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                tools:srcCompat="@tools:sample/avatars"
+                android:id="@+id/imageViewAvatar"
+                android:layout_marginLeft="10dp" android:layout_marginTop="10dp"/>
+        <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewName"
+                android:singleLine="true"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="18sp"
+                android:maxWidth="150dp" android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintEnd_toEndOf="parent" android:paddingTop="14dp" android:paddingRight="6dp">
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editText"
+                android:textColor="@color/cardview_light_background" android:visibility="gone"/>
+        <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/imageViewSearch"
+                android:contentDescription="@string/search"
+                app:srcCompat="@drawable/search_white"/>
+        <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:id="@+id/imageViewMore"
+                android:contentDescription="@string/more"
+                app:srcCompat="@drawable/more_white"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
