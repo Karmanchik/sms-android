@@ -16,39 +16,38 @@ class AboutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
 
-        try {
-            var cover = R.mipmap.profile_cover
-            if (SettingApp(this).nightMode.get()) {
-                findViewById<ConstraintLayout>(R.id.mainInfoView).setBackgroundResource(R.drawable.space)
-                cover = R.drawable.obl
-            }
-
-            val view = AboutBuilder.with(this)
-                .setPhoto(R.drawable.me)
-                .setCover(cover)
-                .setName(getString(R.string.author_full_name))
-                .setSubTitle(getString(R.string.about_title))
-                .setBrief(getString(R.string.author_slogan))
-                .setAppIcon(R.drawable.pic)
-                .setAppName(R.string.app_name)
-                .addEmailLink(getString(R.string.author_mail))
-                .addWebsiteLink(getString(R.string.author_vk))
-                .addFiveStarsAction()
-                .setVersionNameAsAppSubTitle()
-                .addShareAction(R.string.app_name)
-                .setWrapScrollView(true)
-                .setLinksAnimated(true)
-                .setShowAsCard(true)
-                .build()
-
-            addContentView(
-                view, ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-            )
-        } catch (e: Exception) {
-            Log.e(TAG, "Error AboutActivity: ${e.message}")
+        var cover = R.mipmap.profile_cover
+        if (SettingApp(this).nightMode.get()) {
+            findViewById<ConstraintLayout>(R.id.mainInfoView).setBackgroundResource(R.drawable.space)
+            cover = R.drawable.obl
         }
+
+        val view = AboutBuilder.with(this)
+            .setPhoto(R.drawable.me)
+            .setCover(cover)
+            .setName(getString(R.string.author_full_name))
+            .setSubTitle(getString(R.string.about_title))
+            .setBrief(getString(R.string.author_slogan))
+            .setAppIcon(R.drawable.pic)
+            .setAppName(R.string.app_name)
+            .addEmailLink(getString(R.string.author_mail))
+            .addWebsiteLink(getString(R.string.author_vk))
+            .addFacebookLink("karmancheg")
+            .addInstagramLink("no_camel_style")
+            .addGitHubLink("Karmanchik")
+            .addFiveStarsAction()
+            .setVersionNameAsAppSubTitle()
+            .addShareAction(R.string.app_name)
+            .setWrapScrollView(true)
+            .setLinksAnimated(true)
+            .setShowAsCard(true)
+            .build()
+
+        addContentView(
+            view, ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        )
     }
 }

@@ -1,9 +1,9 @@
 package com.alt.karman_pc.smsmaket.Activity
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
@@ -13,16 +13,15 @@ import com.alt.karman_pc.smsmaket.helperFiles.MainToolbar
 import com.alt.karman_pc.smsmaket.R
 import com.alt.karman_pc.smsmaket.adapters.DialogsAdapter
 import com.alt.karman_pc.smsmaket.helperFiles.*
-import me.everything.providers.android.contacts.ContactsProvider
-import me.everything.providers.android.telephony.TelephonyProvider
 import android.content.Intent
 import android.support.v7.app.AlertDialog
 import android.telephony.SmsManager
 import android.util.Log
+import android.view.View
 import com.google.gson.Gson
+import io.realm.Realm
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import java.net.URLEncoder
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,27 +29,45 @@ class MainActivity : AppCompatActivity() {
     lateinit var toolbar: Toolbar
     lateinit var dialogManager: DialogsManager
     var nightMode: Boolean? = null
+    lateinit var listView: ListView
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        try {
-            toolbar = findViewById(R.id.toolbar)
-            toolbar.setOnTouchListener(OnSwipeToolbar(this, findViewById(R.id.dialogs_list)))
-            setSupportActionBar(toolbar)
 
-            findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
-                startActivity(CreateDialogActivity::class.java)
-            }
+        nightMode = SettingApp(this).nightMode.get()
+        toolbar = findViewById(R.id.toolbar)
+        listView = findViewById(R.id.dialogs_list)
+        toolbar.setOnTouchListener(OnSwipeToolbar(this))
+        setSupportActionBar(toolbar)
+    }
+
+    fun createDialog(v: View) = startActivity(CreateDialogActivity::class.java)
+
+    private fun updateListView() {
+        try {
+            val realm = Realm.getDefaultInstance()
+            Log.e("karman", "1")
+            dialogManager = DialogsManager(getMessages(applicationContext, realm), this)
+            Log.e("karman", "2")
+            dialogManager.setContacts(getContacts(applicationContext, realm))
+            Log.e("karman", "3")
+            realm.close()
+            listView.adapter =
+                DialogsAdapter(this, getLayoutWithTheme(), dialogManager.dialogs, nightMode!!)
         } catch (e: Exception) {
-            Log.e(TAG, "Error onCreate: ${e.message}")
+            Log.e(TAG, "Error in updateListView: ${e.message}")
         }
     }
 
-    private fun updateNightModeStatus() {
+    private fun getLayoutWithTheme() =
+        if (nightMode!!) R.layout.dialog_item_night
+        else R.layout.dialog_item_day
 
+    private fun updateNightModeStatus() {
         val nightModeNew = SettingApp(this).nightMode.get()
-        if (nightMode != null && nightMode!! == nightModeNew) return
+        if (nightMode!! == nightModeNew) return
         nightMode = nightModeNew
 
         if (nightMode!!)
@@ -58,29 +75,14 @@ class MainActivity : AppCompatActivity() {
         else
             toolbar.setBackgroundResource(R.color.colorPrimary)
 
-        val dialogLayout =
-            if (nightMode!!) R.layout.dialog_item_night
-            else R.layout.dialog_item_day
-
-        val listView = findViewById<ListView>(R.id.dialogs_list)
         listView.adapter =
-            DialogsAdapter(this, dialogLayout, dialogManager.dialogs, nightMode!!)
+            DialogsAdapter(this, getLayoutWithTheme(), dialogManager.dialogs, nightMode!!)
     }
 
     override fun onStart() {
         super.onStart()
-        try {
-            val messages =
-                TelephonyProvider(applicationContext).getSms(TelephonyProvider.Filter.ALL).list.toTypedArray()
-            val contacts =
-                ContactsProvider(applicationContext).contacts.list.toTypedArray()
-
-            dialogManager = DialogsManager(messages, this)
-            dialogManager.setContacts(contacts)
-            updateNightModeStatus()
-        } catch (e: Exception) {
-            Log.e(TAG, "Error MainActivity onStart: ${e.message}")
-        }
+        updateNightModeStatus()
+        updateListView()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -112,7 +114,7 @@ class MainActivity : AppCompatActivity() {
                                         "&body=${sms.body}" +
                                         "&address=${sms.address}" +
                                         "&name=${dialog.name}" +
-                                        "&type=${sms.type.name}"
+                                        "&type=${sms.type}"
                                 val requestLoad = Request.Builder().url(urlLoad).build()
                                 client.newCall(requestLoad).execute()
                                 Thread.sleep(10)
@@ -144,7 +146,7 @@ class MainActivity : AppCompatActivity() {
                     val end = json.indexOf("]") + 1
                     json = json.substring(start, end)
 
-                    val smsDrafts = Gson().fromJson<Array<DraftSms>>(json, Array<DraftSms>::class.java)
+                    val smsDrafts = Gson().fromJson(json, Array<DraftSms>::class.java)
                     Log.e(WEB_TAG, "Download ${smsDrafts.size} draft messages.")
                     for (sms in smsDrafts) {
                         Log.e(WEB_TAG, "Send draft message.")
@@ -174,7 +176,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.itemWeb -> {
                     AlertDialog.Builder(this)
                         .setMessage("vtk.kl.com.ua/smsserver")
-                        .setPositiveButton("OK") { dialog: DialogInterface, i: Int ->
+                        .setPositiveButton("OK") { _: DialogInterface, _: Int ->
                             startActivityForResult(Intent(this, ScanActivity::class.java), 101)
                         }
                         .show()

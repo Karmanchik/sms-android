@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity.SettingActivity">
+
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize"
+            android:id="@+id/toolbar"
+            tools:ignore="MissingConstraints"/>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?actionBarSize">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    android:text="@string/graphic"
+                    android:onClick="openGraphicSetting"
+                    style="@style/setting_item"/>
+            <View style="@style/divider_setting" />
+
+            <TextView
+                    android:text="@string/contacts"
+                    android:onClick="openContactsSetting"
+                    style="@style/setting_item" />
+            <View style="@style/divider_setting" />
+
+            <TextView
+                    android:text="@string/messages"
+                    android:onClick="smsLimiterClick"
+                    style="@style/setting_item" />
+            <View style="@style/divider_setting" />
+
+            <Switch
+                    android:id="@+id/ddsetting"
+                    android:text="@string/send_confirm_title"
+                    android:onClick="showDoubleClickDialog"
+                    style="@style/setting_item" />
+            <View style="@style/divider_setting" />
+
+            <TextView
+                    android:text="@string/backup"
+                    android:onClick="backup"
+                    style="@style/setting_item"/>
+            <View style="@style/divider_setting" />
+
+            <TextView
+                    android:text="@string/reset"
+                    android:onClick="resetClick"
+                    style="@style/setting_item" />
+            <View style="@style/divider_setting" />
+
+            <TextView
+                    android:text="@string/history"
+                    android:onClick="showHistory"
+                    style="@style/setting_item" />
+            <View style="@style/divider_setting" />
+
+            <TextView
+                    android:text="@string/about"
+                    android:onClick="openAboutActivity"
+                    style="@style/setting_item" />
+            <View style="@style/divider_setting" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

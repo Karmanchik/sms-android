@@ -24,14 +24,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <service
-                android:name=".helperFiles.MyService"
-                android:enabled="true"
-                android:exported="true">
-        </service>
+        <activity android:name=".Activity.ContactsSettingActivity">
+        </activity>
+        <activity android:name=".Activity.GraphicSettingActivity">
+        </activity>
 
-        <receiver android:name=".helperFiles.listener">
-            <intent-filter>
+        <receiver android:name=".helperFiles.Listener">
+            <intent-filter android:priority="100">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>

@@ -94,7 +94,7 @@
     <string name="statistic">Статистика</string>
     <string name="clear">Очистить</string>
     <string name="toBanItem">Заблокировать контакт</string>
-    <string name="author_full_name">Карченко Александр Федорович</string>
+    <string name="author_full_name">Kormachenko Andrey</string>
     <string name="about_title">Android - разработчик</string>
     <string name="author_slogan">Быстро и качественно!</string>
     <string name="author_mail" translatable="false">karchenko.alexandro@yandex.ru</string>
@@ -112,13 +112,21 @@
     <string name="outbox_sms_count">Исходящих сообщений:</string>
     <string name="select_language">Выберите язык приложения</string>
     <string name="setting_reset_title">Сброс настроек</string>
-    <string name="setting_reset_message">После сброса, все настройки приложения возвратятся до начальных. Хотите продолжить?</string>
+    <string name="setting_reset_message">После сброса, все настройки приложения возвратятся до начальных. Хотите
+        продолжить?
+    </string>
     <string name="send_confirm_title">Подтверждение отправления</string>
-    <string name="send_confirm_message">"Сообщения длиннее 50 символов будут требовать подтверждения отправления для предотвращения случайного отправления. Вы всегда сможете изменить свое решение в разделе \\\"Настройки\\\". "</string>
+    <string name="send_confirm_message">"Сообщения длиннее 50 символов будут требовать подтверждения отправления для
+        предотвращения случайного отправления. Вы всегда сможете изменить свое решение в разделе \\\"Настройки\\\". "
+    </string>
     <string name="contacts_use_title">Контакты</string>
-    <string name="contacts_use_message">Использование ваших контактов для определения номеров у других пользователей. Вы всегда можете запретить использование ваших данных в меню \\\"Настройки\\\".</string>
+    <string name="contacts_use_message">Использование ваших контактов для определения номеров у других пользователей. Вы
+        всегда можете запретить использование ваших данных в меню \\\"Настройки\\\".
+    </string>
     <string name="phone_detect_title">Определение номера</string>
-    <string name="phone_detect_message">Вы можете указать источники из которых будет выбираться информация для распознавания номеров.</string>
+    <string name="phone_detect_message">Вы можете указать источники из которых будет выбираться информация для
+        распознавания номеров.
+    </string>
     <string name="apps">Приложения</string>
     <string name="other_users">Других пользователей</string>
     <string name="use_db_phones">Использовать базы номеров</string>
@@ -134,5 +142,25 @@
     <string name="info_unban_phone">"Диалоги с разблокированными пользователями появятся после перезагрузки программы!
         "
     </string>
+    <string name="graphic" translatable="false">Интерфейс</string>
+    <string name="contacts" translatable="false">Контакты</string>
+    <string name="uvedom" translatable="false">Уведомления</string>
+    <string name="messages" translatable="false">Сообщения</string>
+    <string name="reset" translatable="false">Сброс настроек</string>
+    <string name="history" translatable="false">История сессий</string>
+    <string name="db_update">Обновить базу данных</string>
+    <string name="hide_start_activity" translatable="false">Скрыть стартовое окно</string>
+    <string name="font_size" translatable="false">Размер шрифта</string>
+    <string name="night_table" translatable="false">Включать ночной режим по расписанию</string>
+    <string name="start" translatable="false">Начало</string>
+    <string name="end" translatable="false">Конец</string>
+    <string name="who_phone" translatable="false">Определять номера</string>
+    <string name="use_contacts" translatable="false">Использование контактов</string>
+    <string name="to_block">Заблокировать</string>
+    <string name="other">Другое</string>
+    <string name="small">Мелкий</string>
+    <string name="medium">Средний</string>
+    <string name="big">Крупный</string>
+    <string name="font_size_title">Выберите размер шрифта</string>
 
 </resources>

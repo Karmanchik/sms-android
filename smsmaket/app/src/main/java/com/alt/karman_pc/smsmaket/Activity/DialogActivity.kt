@@ -28,6 +28,7 @@ import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import io.realm.Realm
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -126,15 +127,14 @@ class DialogActivity : AppCompatActivity() {
         }
     }
 
-    private fun obtainSms(address: String): Array<Sms> {
-        var resultArray = emptyArray<Sms>()
+    private fun obtainSms(address: String): Array<RealmMessage> {
+        var resultArray = emptyArray<RealmMessage>()
         try {
-            val messages =
-                TelephonyProvider(applicationContext).getSms(TelephonyProvider.Filter.ALL).list.toTypedArray()
-
-            for (sms in messages)
+            val realm = Realm.getDefaultInstance()
+            for (sms in getMessages(applicationContext, realm))
                 if (getShortFormat(sms.address) == getShortFormat(address))
                     resultArray += sms
+            realm.close()
         } catch (e: Exception) {
             Log.e(TAG, "Error DialogActivity obtainSms: ${e.message}")
         }
@@ -264,7 +264,7 @@ class DialogActivity : AppCompatActivity() {
                 getString(R.string.outbox_sms_count) + "${statistic.outboxCount} ($tmp%)"
 
             val values = ArrayList<BarEntry>()
-            for (elem in 0 until statistic.chastota.size)
+            for (elem in statistic.chastota.indices)
                 values.add(BarEntry(statistic.chastota[elem].toFloat(), elem))
 
             val dataSet = BarDataSet(values, "")

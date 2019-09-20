@@ -6,10 +6,10 @@ import java.util.*
 class Dialog (var address: String, var name: String, var avatar: String = "none") {
 
     var lastMessageDate: Long = 0
-    var messages = emptyArray<Sms>()
+    var messages = emptyArray<RealmMessage>()
     var lastBody = ""
 
-    fun addMessage(sms: Sms) {
+    fun addMessage(sms: RealmMessage) {
         if (messages.isEmpty()) {
             lastMessageDate = sms.getDate()
             lastBody = sms.body
@@ -17,8 +17,8 @@ class Dialog (var address: String, var name: String, var avatar: String = "none"
         messages += sms
     }
 
-    fun search(text: String): Array<Sms> {
-        var result = emptyArray<Sms>()
+    fun search(text: String): Array<RealmMessage> {
+        var result = emptyArray<RealmMessage>()
         for (sms in messages)
             if (sms.address != "date" && sms.body.contains(text, true))
                 result += sms
@@ -35,7 +35,7 @@ class Dialog (var address: String, var name: String, var avatar: String = "none"
 
         for (sms in messages)
             if (sms.type != null) {
-                if (sms.type.name == "INBOX")
+                if (sms.type == "INBOX")
                     countInSms++
                 else if (sms.address != "date")
                     countOutSms++
@@ -72,8 +72,8 @@ class Dialog (var address: String, var name: String, var avatar: String = "none"
         return true
     }
 
-    private fun createDateSms(date: Long): Sms {
-        val dateSms = Sms()
+    private fun createDateSms(date: Long): RealmMessage {
+        val dateSms = RealmMessage()
         dateSms.address = "date"
         dateSms.sentDate = date
         return dateSms
@@ -82,7 +82,7 @@ class Dialog (var address: String, var name: String, var avatar: String = "none"
     fun formatDialog() {
         messages.reverse()
         var lastDate: Long = 0
-        var dialogArray = emptyArray<Sms>()
+        var dialogArray = emptyArray<RealmMessage>()
         for (sms in messages) {
             if (isNotOneDay(sms.getDate(), lastDate) && Date(sms.getDate()).after(Date(lastDate))) {
                 dialogArray += createDateSms(sms.getDate())

@@ -4,10 +4,10 @@
         <variable name="dialog" type="com.alt.karman_pc.smsmaket.helperFiles.Dialog"/>
     </data>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             xmlns:tools="http://schemas.android.com/tools">
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
             android:orientation="vertical"
@@ -18,8 +18,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/face_black"
                     android:layout_margin="10dp"
                     android:id="@+id/iv"
@@ -33,7 +33,7 @@
                         android:singleLine="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="0dp"
@@ -43,7 +43,10 @@
                         android:singleLine="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"/>
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

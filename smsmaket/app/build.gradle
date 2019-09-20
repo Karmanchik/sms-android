@@ -4,6 +4,10 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'realm-android'
+
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -56,4 +60,5 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
     implementation 'me.dm7.barcodescanner:zxing:1.9'
     implementation "com.squareup.okhttp3:okhttp:3.14.1"
+    implementation 'io.realm:android-adapters:2.0.0'
 }

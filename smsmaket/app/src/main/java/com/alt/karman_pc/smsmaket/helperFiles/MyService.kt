@@ -5,10 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
-import com.afollestad.rxkprefs.rxkPrefs
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import java.net.URLEncoder
 
 class MyService : Service() {
 

@@ -15,7 +15,8 @@ import com.alt.karman_pc.smsmaket.R
 import com.alt.karman_pc.smsmaket.helperFiles.*
 import com.alt.karman_pc.smsmaket.helperFiles.startActivity
 import com.github.florent37.runtimepermission.kotlin.askPermission
-import java.util.*
+import io.realm.Realm
+import io.realm.RealmConfiguration
 
 
 class StartActivity : AppCompatActivity() {
@@ -23,11 +24,19 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         try {
-
             setContentView(R.layout.activity_start)
 
+            Realm.init(applicationContext)
+            val config =
+                RealmConfiguration
+                    .Builder()
+                    .name("tasky.realm")
+                    .schemaVersion(0)
+                    .build()
+            Realm.setDefaultConfiguration(config)
+
             val setting = SettingApp(this)
-            setLocale(setting.language.get())
+            setLocale(this, setting.language.get())
 
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             window.setFlags(
@@ -37,6 +46,11 @@ class StartActivity : AppCompatActivity() {
 
             if (setting.nightMode.get())
                 findViewById<ConstraintLayout>(R.id.field1).setBackgroundResource(R.color.nightTheme)
+
+            if (!setting.showStartLogo.get()) {
+                askSmsPermission()
+                throw Exception("not show start activity")
+            }
 
             val animLogo = AnimationUtils.loadAnimation(this, R.anim.main_logo)
             animLogo.setAnimationListener(object : Animation.AnimationListener {
@@ -56,16 +70,6 @@ class StartActivity : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
         finish()
-    }
-
-    private fun setLocale(language: String) {
-        if (language != "default") {
-            val res = resources
-            val dm = res.displayMetrics
-            val conf = res.configuration
-            conf.locale = Locale(language)
-            res.updateConfiguration(conf, dm)
-        }
     }
 
     fun askSmsPermission() {

@@ -8,19 +8,20 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.alt.karman_pc.smsmaket.R
+import com.alt.karman_pc.smsmaket.helperFiles.RealmMessage
 import com.alt.karman_pc.smsmaket.helperFiles.getDate
 import me.everything.providers.android.telephony.Sms
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SearchAdapter(context: Context, layout_id_stuf: Int, var messages: Array<Sms>, val nightMode: Boolean)
-    : ArrayAdapter<Sms>(context, layout_id_stuf, messages) {
+class SearchAdapter(context: Context, layout_id_stuf: Int, var messages: Array<RealmMessage>, val nightMode: Boolean)
+    : ArrayAdapter<RealmMessage>(context, layout_id_stuf, messages) {
 
     @SuppressLint("ViewHolder", "SimpleDateFormat")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
         val sms = messages[position]
-        val type = sms.type.name
+        val type = sms.type
         val layout =
             if (nightMode && type == "INBOX")
                 R.layout.message_item_night_left

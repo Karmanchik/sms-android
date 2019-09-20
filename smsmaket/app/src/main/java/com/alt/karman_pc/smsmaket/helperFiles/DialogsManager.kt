@@ -5,7 +5,7 @@ import com.google.gson.Gson
 import me.everything.providers.android.contacts.Contact
 import me.everything.providers.android.telephony.Sms
 
-class DialogsManager(messages: Array<Sms>, val context: Context) {
+class DialogsManager(messages: Array<RealmMessage>, val context: Context) {
 
     var dialogs = emptyArray<Dialog>()
 
@@ -17,7 +17,7 @@ class DialogsManager(messages: Array<Sms>, val context: Context) {
                 addMessage(message)
     }
 
-    private fun addMessage(sms: Sms) {
+    private fun addMessage(sms: RealmMessage) {
         var index = findDialog(sms.address)
         if (index == -1) {
             val dialog = Dialog(sms.address, sms.address)
@@ -28,13 +28,13 @@ class DialogsManager(messages: Array<Sms>, val context: Context) {
     }
 
     private fun findDialog(address: String): Int {
-        for (index in 0 until dialogs.size)
+        for (index in dialogs.indices)
             if (getShortFormat(dialogs[index].address) == getShortFormat(address))
                 return index
         return -1
     }
 
-    fun setContacts(contacts: Array<Contact>) {
+    fun setContacts(contacts: Array<RealmContact>) {
         val setting = SettingApp(context)
         if (setting.useDBusers.get())
             setUsersContacts()
@@ -45,9 +45,7 @@ class DialogsManager(messages: Array<Sms>, val context: Context) {
             for (contact in contacts) {
                 if (getShortFormat(dialog.address) == getShortFormat(contact.phone)) {
                     dialog.name = contact.displayName
-                    dialog.avatar =
-                        if (contact.uriPhoto == null) "none"
-                        else contact.uriPhoto
+                    dialog.avatar = contact.uriPhoto!!
                 }
             }
     }

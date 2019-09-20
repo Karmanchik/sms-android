@@ -12,13 +12,14 @@ import com.alt.karman_pc.smsmaket.helperFiles.Dialog
 import me.everything.providers.android.telephony.Sms
 import android.view.LayoutInflater
 import android.widget.TextView
+import com.alt.karman_pc.smsmaket.helperFiles.RealmMessage
 import com.alt.karman_pc.smsmaket.helperFiles.getDate
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class MessagesAdapter(context: Context, layout_id: Int, var dialog: Dialog, val nightMode: Boolean)
-    : ArrayAdapter<Sms>(context, layout_id, dialog.messages) {
+    : ArrayAdapter<RealmMessage>(context, layout_id, dialog.messages) {
 
     @SuppressLint("ViewHolder", "SimpleDateFormat")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -29,7 +30,7 @@ class MessagesAdapter(context: Context, layout_id: Int, var dialog: Dialog, val 
             if (sms.address == "date")
                 "date"
             else
-                sms.type.name
+                sms.type
 
         if (type == "date") {
             val dateView = TextView(context)
